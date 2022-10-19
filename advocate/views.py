@@ -6,6 +6,7 @@ from .serializers import AdvocateSerializer,CompaniesSerializer
 from .models import Advocate,Companies
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
+from rest_framework.pagination import PageNumberPagination,LimitOffsetPagination
 
 # Create your views here.
 class AdvocateView(ListModelMixin,GenericAPIView):
@@ -19,6 +20,8 @@ class AdvocateView(ListModelMixin,GenericAPIView):
     filter_backends = [DjangoFilterBackend,filters.SearchFilter]
     filterset_fields = ['name']
     search_fields = ['name']
+    django_paginator_class = [PageNumberPagination,LimitOffsetPagination]
+    page_size = 10
 
     def get(self,request,*args,**kwargs):
         return self.list(request,*args,**kwargs)
