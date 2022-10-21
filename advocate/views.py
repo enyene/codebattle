@@ -59,7 +59,7 @@ class CompaniesView(generics.RetrieveAPIView):
 
 class CompanyView(ListModelMixin,GenericAPIView):
     '''
-    This class is used to get the list of all advocates
+    This class is used to get the list of all companies
 
     only get method is allowed
     '''
@@ -84,7 +84,8 @@ class Home(APIView):
         Return a list of endpoints
         """
         data = {
-            'http://127.0.0.1:8000/api/advocate',
-            'http://127.0.0.1:8000/api/companies/'
+            'https://codebattle-production.up.railway.app//api/advocate',
+            'https://codebattle-production.up.railway.app//api/companies/'
         }
         return Response(data=data)
+
