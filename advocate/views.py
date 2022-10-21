@@ -79,13 +79,15 @@ class CompanyView(ListModelMixin,GenericAPIView):
 #     )
 
 class Home(APIView):
-    def get(self, request, format=None):
         """
         Return a list of endpoints
         """
-        data = {
+
+        def get(self, request, format=None):
+        
+            data = {
             'https://codebattle-production.up.railway.app/api/advocate',
-            'https://codebattle-production.up.railway.app/api/companies/'
+            'https://codebattle-production.up.railway.app/api/companies'
         }
-        return Response(data=data)
+            return Response(data=data)
 

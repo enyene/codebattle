@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'corsheaders',
+    'drf_yasg',
 
     #local
     'advocate'
