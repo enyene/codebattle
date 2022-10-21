@@ -6,7 +6,10 @@ class Company(models.Model):
     logo = models.ImageField(upload_to='company/logo')
     summary = models.CharField(max_length=200)
     href = models.URLField()
-    #advocates = models.ManyToManyField('Advocate',related_name='companies',null=True,blank=True)
+    
+
+    def __str__(self):
+        return self.name
 
 
  
@@ -37,14 +40,14 @@ class Advocate(models.Model):
 
 
 class Companies(models.Model):
-    name = models.CharField(max_length=100,null=True)
-    logo = models.ImageField(upload_to='company/logo',null=True)
-    summary = models.CharField(max_length=200,null=True)
-    href = models.URLField( null=True)
-    advocates = models.ManyToManyField('Advocate',null=True,blank=True)
+    company = models.ForeignKey('Company',on_delete=models.CASCADE)
+    advocates = models.ManyToManyField('Advocate')
 
 
 
 
     class Meta:
         verbose_name_plural = 'Companies'
+
+    def __str__(self):
+        return self.company.name

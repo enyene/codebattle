@@ -5,7 +5,6 @@ from .models import Advocate,Company,Links,Companies
 
 
 class CompanySerializer(serializers.ModelSerializer):
-    
     class Meta:
         model = Company
         fields = '__all__'
@@ -35,13 +34,11 @@ class AdvocateSerializer(serializers.ModelSerializer):
 
 class CompaniesSerializer(serializers.ModelSerializer):
     advocates = AdvocateSerializer(many=True)
+    company = CompanySerializer()
 
     class Meta:
         model = Companies
         fields = [
-            'name',
-            'logo',
-            'summary',
-            'href',
-            'advocates'
+            'company',
+         'advocates'
         ]
