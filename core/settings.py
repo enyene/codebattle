@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'corsheaders',
-    'pillow'
+    'pillow',
 
     #local
     'advocate'
