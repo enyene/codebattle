@@ -1,9 +1,9 @@
 from django.urls import path,include
-from .views import AdvocateView,AdvocateDetailView,CompaniesView,CompanyView,home
+from .views import AdvocateView,AdvocateDetailView,CompaniesView,CompanyView,Home
 
 
 urlpatterns = [
-    path('api',home ),
+    path('',Home.as_view(),name='home' ),
     path('api/advocate',AdvocateView.as_view(),name='advocate'),
     path('api/advocate/<int:pk>',AdvocateDetailView.as_view(),name='advocate-detail'),
     

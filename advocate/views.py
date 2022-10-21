@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics, response
 from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import ListModelMixin
-from rest_framework.views import Response
+from rest_framework.views import Response,APIView
 from .serializers import AdvocateSerializer,CompaniesSerializer
 from .models import Advocate,Companies
 from django_filters.rest_framework import DjangoFilterBackend
@@ -69,11 +69,22 @@ class CompanyView(ListModelMixin,GenericAPIView):
     def get(self,request,*args,**kwargs):
         return self.list(request,*args,**kwargs)
 
-@api_view(['GET'])
-def home(request):
-    return Response(
-        {
+# @api_view(['GET'])
+# def home(request):
+#     return Response(
+#         {
+#             'http://127.0.0.1:8000/api/advocate',
+#             'http://127.0.0.1:8000/api/companies/'
+#         }
+#     )
+
+class Home(APIView):
+    def get(self, request, format=None):
+        """
+        Return a list of endpoints
+        """
+        data = {
             'http://127.0.0.1:8000/api/advocate',
             'http://127.0.0.1:8000/api/companies/'
         }
-    )
+        return Response(data=data)
