@@ -84,8 +84,8 @@ class Home(APIView):
         Return a list of endpoints
         """
         data = {
-            'https://codebattle-production.up.railway.app//api/advocate',
-            'https://codebattle-production.up.railway.app//api/companies/'
+            'https://codebattle-production.up.railway.app/api/advocate',
+            'https://codebattle-production.up.railway.app/api/companies/'
         }
         return Response(data=data)
 
