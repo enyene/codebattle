@@ -10,6 +10,11 @@ from rest_framework import filters
 from rest_framework.decorators import api_view
 from rest_framework.pagination import PageNumberPagination,LimitOffsetPagination
 
+
+headers={
+    "Access-Control-Allow-Origin":"*",
+}
+
 # Create your views here.
 class AdvocateView(ListModelMixin,GenericAPIView):
     '''
@@ -89,5 +94,5 @@ class Home(APIView):
             'https://codebattle-production.up.railway.app/api/advocate',
             'https://codebattle-production.up.railway.app/api/companies'
         }
-            return Response(data=data)
+            return Response(data=data,headers=headers)
 
